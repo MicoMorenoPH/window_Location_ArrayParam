@@ -1,0 +1,59 @@
+VIEW//
+//dtl = [];
+                //$('#onhandMonitoringTable1-dtl tr').each(function () {
+                //    vdtl = {};
+                //    vdtl["item_code"] = $(this).closest("tr").find("#d-itemCode").text();
+                //    vdtl["itemName"] = $(this).closest("tr").find("#d-itemname").text();
+                //    vdtl["lrDate"] = $(this).closest("tr").find("#d-lrDate").text();
+                //    vdtl["lcDate"] = $(this).closest("tr").find("#d-lcDate").text();
+                //    vdtl["uom"] = $(this).closest("tr").find("#d-uom").text();
+                //    vdtl["conv"] = $(this).closest("tr").find("#d-conv").text();
+                //    vdtl["onHand"] = $(this).closest("tr").find("#d-onhand").text();
+                //    dtl.push(vdtl);
+                //});
+                @*var url = '@Url.Action("exportToExcel", "OnhandMonitoring")';
+                window.location = url + '?sysParam=' + JSON.stringify(dtl);*@
+
+                
+                
+                @*var person = [];
+                person.push("Reign");//change like $("#idname").val();
+                person.push("John");
+                var listOfObjects = [];
+                person.forEach(function (names) {
+                    var singleObj = {}
+                    singleObj['name'] = names;
+                    singleObj['dept'] = 'IT Dept.';
+                    listOfObjects.push(singleObj);
+                });
+                var url = '@Url.Action("exportToExcel", "OnhandMonitoring")';
+
+                window.location = url + '?id=' + JSON.stringify(listOfObjects);*@
+
+
+CONTROLLER
+
+//string getval = Request.QueryString["sysParam"];
+            //string concat = @"{""data"":" + getval + "}";
+
+            //ValList vl = new JavaScriptSerializer().Deserialize<ValList>(concat);
+
+            //for (i = 0; i < vl.data.Count; i++)
+            //{
+            //    ws.Cells[string.Format("A{0}", rowStart)].Value = i + 1;
+            //    ws.Cells[string.Format("B{0}", rowStart)].Value = vl.data[i].item_code.ToString();
+            //    ws.Cells[string.Format("C{0}", rowStart)].Value = vl.data[i].itemName.ToString();
+            //    ws.Cells[string.Format("D{0}", rowStart)].Value = vl.data[i].lrDate.ToString();
+            //    ws.Cells[string.Format("E{0}", rowStart)].Value = vl.data[i].lcDate.ToString();
+            //    ws.Cells[string.Format("F{0}", rowStart)].Value = vl.data[i].uom.ToString() + " (" + vl.data[i].conv + ")" ;
+            //    ws.Cells[string.Format("G{0}", rowStart)].Value = vl.data[i].onHand.ToString();
+            //    rowStart++;
+
+            //    //testItemcode = vl.data[i].item_code.ToString();
+            //    //testItemName = vl.data[i].itemName.ToString();
+            //}
+
+public class ValList
+        {
+            public List<suppliesRequisition> data { get; set; }
+        }
